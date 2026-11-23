@@ -1,0 +1,4 @@
+A <- 15
+B <- 4
+RESULT <- ^{mod(A, B)}
+(list A B RESULT)

@@ -1,0 +1,4 @@
+CPU <- 8
+RAM <- 16
+MAX <- ^{max(CPU, RAM)}
+(list CPU RAM MAX)
