@@ -1,4 +1,8 @@
 from lark import Lark
+from lark.exceptions import LarkError
+from errors import ParseError
+from transformer import ConfigTransformer
+
 
 GRAMMAR = r"""
     start: statement*
@@ -43,3 +47,12 @@ GRAMMAR = r"""
 """
 
 parser = Lark(GRAMMAR, parser="lalr")
+
+
+def parse_text(text):
+    try:
+        tree = parser.parse(text)
+        transformer = ConfigTransformer()
+        return transformer.transform(tree)
+    except LarkError as error:
+        raise ParseError(str(error)) from error
