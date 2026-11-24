@@ -16,6 +16,7 @@ GRAMMAR = r"""
     expression_statement: value
 
     ?value: NUMBER              -> number
+          | NAME                -> variable
           | array
           | calculation
 
