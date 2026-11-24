@@ -26,8 +26,9 @@ def convert_to_xml(data):
     for item in data:
         value_to_xml(root, item)
 
-    return ET.tostring(root, encoding="unicode")
+    ET.indent(root, space="    ")
 
+    return ET.tostring(root, encoding="unicode")
 
 def main():
     source = sys.stdin.read()
